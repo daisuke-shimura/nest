@@ -1,2 +1,17 @@
-<h1>Books#index</h1>
-<p>Find me in app/views/books/index.html.erb</p>
+<h1>一覧ページ</h1>
+<hr>
+<h2>新規</h2>
+<%= form_with model: Book.new, url:books_path, method: :post do |f| %>
+  <%= f.text_field :title %>
+  <%= f.submit "送信" %>
+<% end %>
+<hr>
+<h2>一覧</h2>
+<% Book.all.each do |book| %>
+  <%= link_to book_path(book.id) do %>
+    <%= book.id %>
+  <% end %>
+    <%= book.title %>
+  <%= link_to "削除", book_path(book.id), data: { turbo_method: :delete } %>
+  <br>
+<% end %>

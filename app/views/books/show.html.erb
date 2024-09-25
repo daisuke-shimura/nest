@@ -1,2 +1,25 @@
-<h1>Books#show</h1>
+<h1>投稿ごとのページ</h1>
 <p>Find me in app/views/books/show.html.erb</p>
+<%= link_to "戻る", books_path %>
+<hr>
+<%= @book.id %>
+<%= @book.title %>
+<%= link_to "削除", book_path(@book.id), data: { turbo_method: :delete } %>
+<hr>
+<h2>コメント</h2>
+<h3>コメント新規</h3>
+<%= form_with model:[@book,Comment.new], url:book_comments_path(@book.id), method: :post do |f| %>
+  <%= f.text_field :comment %>
+  <%= f.submit "投稿" %>
+<% end %>
+<hr>
+<h3>コメント一覧</h3>
+<%= Book.find(params[:id]).id %>
+<br>
+<% Comment.all.each do |comment| %>
+  <%= comment.id %>
+  <%= comment.book_id %>
+  <%= comment.comment %>
+  <%= link_to "削除", book_comment_path(comment.id), data: { turbo_method: :delete } %>
+  <br>
+<% end %>
