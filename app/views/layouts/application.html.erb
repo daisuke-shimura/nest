@@ -11,6 +11,13 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <li><%= link_to "book一覧ページ", books_path %></li>
+      <li><%= link_to "ユーザー一覧ページ", users_path %></li>
+      <li><%= link_to "ユーザー新規", new_user_path %></li>
+    </header>
+    <main>
+      <%= yield %>
+    </main>
   </body>
 </html>

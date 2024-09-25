@@ -1,0 +1,10 @@
+<h1>ユーザー一覧</h1>
+<p>Find me in app/views/users/index.html.erb</p>
+<% User.all.each do |user| %>
+  <%= link_to edit_user_path(user.id) do %>
+    <%= user.id %>
+    <%= user.name %>
+  <% end %>
+  　<%= link_to "削除", user_path(user.id), data: { turbo_method: :delete } %>
+  <br>
+<% end %>
