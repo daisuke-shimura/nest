@@ -9,6 +9,7 @@
 <h2>コメント</h2>
 <h3>コメント新規</h3>
 <%= form_with model:[@book,Comment.new], url:book_comments_path(@book.id), method: :post do |f| %>
+
   <%= f.text_field :comment %>
   <%= f.submit "投稿" %>
 <% end %>
