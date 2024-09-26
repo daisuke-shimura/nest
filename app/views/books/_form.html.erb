@@ -1,0 +1,9 @@
+<%= form_with model:[book,Comment.new], url:book_comments_path(book.id), method: :post do |f| %>
+  <%= f.label :comment, "コメント" %>
+  <%= f.text_field :comment %>
+
+  <%= f.label :user_id, "ユーザー名" %>
+  <%= f.collection_select :user_id, User.all, :id, :name, include_blank: "選択してね" %>
+
+  <%= f.submit "投稿" %>
+<% end %>

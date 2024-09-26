@@ -3,16 +3,12 @@
 <%= link_to "戻る", books_path %>
 <hr>
 <%= @book.id %>
-<%= @book.title %>
+<%= @book.start %>～<%= @book.finish %>
 <%= link_to "削除", book_path(@book.id), data: { turbo_method: :delete } %>
 <hr>
 <h2>コメント</h2>
 <h3>コメント新規</h3>
-<%= form_with model:[@book,Comment.new], url:book_comments_path(@book.id), method: :post do |f| %>
-
-  <%= f.text_field :comment %>
-  <%= f.submit "投稿" %>
-<% end %>
+<%= render "form", book:@book %>
 <hr>
 <h3>コメント一覧</h3>
 <%= Book.find(params[:id]).id %>
@@ -22,5 +18,23 @@
   <%= comment.book_id %>
   <%= comment.comment %>
   <%= link_to "削除", book_comment_path(comment.id), data: { turbo_method: :delete } %>
+  <%= comment.user_id %>
+  <br>
+<% end %>
+<hr>
+<h3>ユーザー一覧からコメント</h3>
+<% User.all.each do |user| %>
+  <%= user.id %>
+  <%= user.name %>
+  <% Comment.all.each do |comment| %>
+    <% if @book.id == comment.book_id %>
+      <% if user.id == comment.user_id %>
+        <%= comment.comment %>
+        <%= link_to "削除", book_comment_path(comment.id), data: { turbo_method: :delete } %>
+      <% else %>
+        <%= render "form", book:@book %>
+      <% end %>
+    <% end %>
+  <% end %>
   <br>
 <% end %>
