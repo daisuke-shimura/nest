@@ -1,21 +1,27 @@
 <h1>一覧ページ</h1>
 <hr>
+<h2>今日</h2>
+<%= @date %>
 <h2>新規</h2>
 <%= form_with model: Book.new, url:books_path, method: :post do |f| %>
-  <%= f.date_field :start %>
+  <%= f.date_field :start_i %>
   ～
-  <%= f.date_field :finish %>
+  <%= f.date_field :finish_i %>
   <%= f.submit "送信" %>
 <% end %>
 <hr>
 <h2>一覧</h2>
 <% Book.all.each do |book| %>
-  <%= book.id %>
+  <% if @date > book.start_i %>
+    <%= link_to "バックアップ", past_path %><br>
+  <% else %>
+    <%= book.id %>
   <%= link_to book_path(book.id) do %>
-    <%= book.start %>
-    ～
-    <%= book.finish %>
+    <%= book.start_i %>～<%= book.finish_i %>
   <% end %>
   　<%= link_to "削除", book_path(book.id), data: { turbo_method: :delete } %>
   <br>
+  <% end %>
+
+
 <% end %>

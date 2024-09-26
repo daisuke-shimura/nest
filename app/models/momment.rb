@@ -1,0 +1,2 @@
+class Momment < ApplicationRecord
+end

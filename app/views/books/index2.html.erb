@@ -1,0 +1,11 @@
+<h2>過去のデータ</h2>
+<% Book.all.each do |book| %>
+  <% if @date > book.start_i %>
+    <%= book.id %>
+    <%= link_to book_path(book.id) do %>
+      <%= book.start_i %>～<%= book.finish_i %>
+    <% end %>
+    　<%= link_to "削除", book_path(book.id), data: { turbo_method: :delete } %>
+    <br>
+  <% end %>
+<% end %>

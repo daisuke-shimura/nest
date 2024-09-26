@@ -1,10 +1,17 @@
 <h1>投稿ごとのページ</h1>
 <p>Find me in app/views/books/show.html.erb</p>
 <%= link_to "戻る", books_path %>
+<h2>ログインユーザー</h2>
+
 <hr>
 <%= @book.id %>
-<%= @book.start %>～<%= @book.finish %>
+<%= @book.start_i %>～<%= @book.finish_i %>
 <%= link_to "削除", book_path(@book.id), data: { turbo_method: :delete } %>
+<% if @date > @book.start_i %>
+1
+<% else %>
+0
+<% end %>
 <hr>
 <h2>コメント</h2>
 <h3>コメント新規</h3>
