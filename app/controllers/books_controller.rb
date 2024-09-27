@@ -1,6 +1,9 @@
 class BooksController < ApplicationController
   def index
+    date1 = Date.today
+    @date1 = (date1 + (8-date1.wday))+14
     @date = Date.today
+    
   end
 
   def index2
