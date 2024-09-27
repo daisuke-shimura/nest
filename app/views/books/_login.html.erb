@@ -1,0 +1,10 @@
+<%= form_with model: Momment.new, url: momments_path, method: :post do |f| %>
+  <%= f.collection_select :momment_id, User.all, :id, :name, include_blank: "選択してね" %>
+  <%= f.submit "選択" %>
+<% end %>
+
+<% Momment.all.each do |m| %>
+  <%= m.id %>
+  <%= m.momment_id %>
+  <%= link_to "削除", momment_path(m.id), data: { turbo_method: :delete } %>
+<% end %>

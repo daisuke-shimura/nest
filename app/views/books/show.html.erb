@@ -2,7 +2,7 @@
 <p>Find me in app/views/books/show.html.erb</p>
 <%= link_to "戻る", books_path %>
 <h2>ログインユーザー</h2>
-
+<%= render "login" %>
 <hr>
 <%= @book.id %>
 <%= @book.start_i %>～<%= @book.finish_i %>
