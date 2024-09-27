@@ -13,7 +13,10 @@ class BooksController < ApplicationController
   end
 
   def create
+    @date = Date.today
     book = Book.new(book_params)
+    #book.start_i = @date-1
+    #book.finish_i = @date+7
     book.save
     redirect_to request.referer
   end
