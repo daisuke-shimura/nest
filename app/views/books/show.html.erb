@@ -7,15 +7,27 @@
 <%= @book.id %>
 <%= @book.start_i %>～<%= @book.finish_i %>
 <%= link_to "削除", book_path(@book.id), data: { turbo_method: :delete } %>
-<% if @date > @book.start_i %>
-1
-<% else %>
-0
-<% end %>
-<hr>
-<h2>コメント</h2>
-<h3>コメント新規</h3>
-<%= render "form", book:@book %>
+<br>
+<table>
+  <tr>
+    <th><%= @book.start_i.month %>月<%= @book.start_i.day %>日</td>
+    <th><%= (@book.start_i+1).month %>月<%= (@book.start_i+1).day %>日</th>
+    <th><%= (@book.start_i+2).month %>月<%= (@book.start_i+2).day %>日</th>
+    <th><%= (@book.start_i+3).month %>月<%= (@book.start_i+3).day %>日</th>
+    <th><%= (@book.start_i+4).month %>月<%= (@book.start_i+4).day %>日</th>
+    <th><%= (@book.start_i+5).month %>月<%= (@book.start_i+5).day %>日</th>
+    <th><%= (@book.start_i+6).month %>月<%= (@book.start_i+6).day %>日</th>
+  </tr>
+  <tr>
+    <td>月</td>
+    <td>火</td>
+    <td>水</td>
+    <td>木</td>
+    <td>金</td>
+    <td style="color: blue">土</td>
+    <td style="color: red">日</td>
+  </tr>
+</table>
 <hr>
 <h3>コメント一覧</h3>
 <%= Book.find(params[:id]).id %>

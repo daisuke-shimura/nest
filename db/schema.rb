@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_09_26_151627) do
+ActiveRecord::Schema[7.1].define(version: 2024_09_27_085104) do
   create_table "books", force: :cascade do |t|
     t.string "title"
     t.datetime "created_at", null: false
@@ -29,6 +29,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_26_151627) do
     t.datetime "updated_at", null: false
     t.integer "number"
     t.integer "user_id"
+  end
+
+  create_table "holidays", force: :cascade do |t|
+    t.integer "book_id"
+    t.boolean "trigger", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "momments", force: :cascade do |t|
