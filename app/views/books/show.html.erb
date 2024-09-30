@@ -7,8 +7,15 @@
 <%= @book.id %>
 <%= @book.start_i %>～<%= @book.finish_i %>
 <%= link_to "削除", book_path(@book.id), data: { turbo_method: :delete } %>
-<br>
 <hr>
+<% if @book.week_by?(@book.id) %>
+a
+<%= link_to "削除", book_weeks_path(@book.id), data: { turbo_method: :delete } %>
+<% else %>
+b
+<%= link_to "投稿", book_weeks_path(@book.id), data: { turbo_method: :post } %>
+<% end %>
+
 <table>
   <tr>
     <th><%= @book.start_i.month %>月<%= @book.start_i.day %>日</td>

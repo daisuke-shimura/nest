@@ -1,0 +1,2 @@
+class ThusController < ApplicationController
+end

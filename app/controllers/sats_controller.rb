@@ -1,0 +1,2 @@
+class SatsController < ApplicationController
+end

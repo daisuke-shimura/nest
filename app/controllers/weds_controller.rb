@@ -1,0 +1,2 @@
+class WedsController < ApplicationController
+end

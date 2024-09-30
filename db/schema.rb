@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_09_30_033645) do
+ActiveRecord::Schema[7.1].define(version: 2024_09_30_143607) do
   create_table "books", force: :cascade do |t|
     t.string "title"
     t.datetime "created_at", null: false
@@ -31,6 +31,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_30_033645) do
     t.integer "user_id"
   end
 
+  create_table "fris", force: :cascade do |t|
+    t.integer "book_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "holidays", force: :cascade do |t|
     t.integer "book_id"
     t.boolean "trigger", default: false, null: false
@@ -45,20 +51,43 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_30_033645) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "mons", force: :cascade do |t|
+    t.integer "book_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "sats", force: :cascade do |t|
+    t.integer "book_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "thus", force: :cascade do |t|
+    t.integer "book_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tues", force: :cascade do |t|
+    t.integer "book_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "weds", force: :cascade do |t|
+    t.integer "book_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "weeks", force: :cascade do |t|
-    t.integer "mon"
-    t.integer "tue"
-    t.integer "wed"
-    t.integer "thu"
-    t.integer "fri"
-    t.integer "sat"
-    t.integer "sun"
     t.integer "book_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

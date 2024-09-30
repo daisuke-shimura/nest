@@ -1,0 +1,2 @@
+class TuesController < ApplicationController
+end

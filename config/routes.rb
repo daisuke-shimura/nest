@@ -6,6 +6,12 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :destroy]
     resources :holidays, only: [:create, :destroy]
     resource :weeks, only: [:create, :destroy]
+    resource :fris, only: [:create, :destroy]
+    resource :mons, only: [:create, :destroy]
+    resource :sats, only: [:create, :destroy]
+    resource :thus, only: [:create, :destroy]
+    resource :tues, only: [:create, :destroy]
+    resource :weds, only: [:create, :destroy]
   end
   get "past" => 'books#index2'
   resources :momments, only: [:create, :destroy]
