@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_09_27_085104) do
+ActiveRecord::Schema[7.1].define(version: 2024_09_30_033645) do
   create_table "books", force: :cascade do |t|
     t.string "title"
     t.datetime "created_at", null: false
@@ -47,6 +47,19 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_27_085104) do
 
   create_table "users", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "weeks", force: :cascade do |t|
+    t.integer "mon"
+    t.integer "tue"
+    t.integer "wed"
+    t.integer "thu"
+    t.integer "fri"
+    t.integer "sat"
+    t.integer "sun"
+    t.integer "book_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
