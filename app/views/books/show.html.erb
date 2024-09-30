@@ -8,6 +8,19 @@
 <%= @book.start_i %>～<%= @book.finish_i %>
 <%= link_to "削除", book_path(@book.id), data: { turbo_method: :delete } %>
 <br>
+<%= link_to "祝日", book_holidays_path(@book.id), data: { turbo_method: :post } %>
+<%= form_with model: Holiday.new, url: book_holidays_path(@book.id), method: :post do |f| %>
+  <%= f.radio_button :trigger, "1" %>〇
+  <%= f.radio_button :trigger , 0 %>×
+  <%= f.submit "提出" %>
+<% end %>
+<br>
+<%= Holiday.all.each do |day| %>
+  <%= day.trigger %>
+  <%= day.book_id %>
+  <%= link_to "削除", book_holiday_path(day.book_id, day.id), data: { turbo_method: :delete } %>
+<% end %>
+<hr>
 <table>
   <tr>
     <th><%= @book.start_i.month %>月<%= @book.start_i.day %>日</td>
