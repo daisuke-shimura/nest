@@ -3,7 +3,7 @@ class HolidaysController < ApplicationController
     day = Holiday.new(holiday_parsms)
     book = Book.find(params[:book_id])
     day.book_id = book.id
-    #day.trigger = true
+    day.trigger = true
     day.save
     redirect_to request.referer
   end
