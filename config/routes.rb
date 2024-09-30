@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :books, only: [:index, :show, :create, :destroy] do
     resources :comments, only: [:create, :destroy]
     resources :holidays, only: [:create, :destroy]
+    resource :weeks, only: [:create, :destroy]
   end
   get "past" => 'books#index2'
   resources :momments, only: [:create, :destroy]
