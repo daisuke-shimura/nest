@@ -20,8 +20,12 @@ class BooksController < ApplicationController
     book = Book.new(book_params)
     #book.start_i = @date-1
     #book.finish_i = @date+7
-    book.save
-    redirect_to request.referer
+    if book.save
+      redirect_to request.referer
+    else
+      flash[:notice] = "既に作られている日程です"
+      redirect_to request.referer
+    end
   end
 
   def destroy

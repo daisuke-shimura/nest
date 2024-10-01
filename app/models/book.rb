@@ -9,6 +9,9 @@ class Book < ApplicationRecord
   has_many :weds, dependent: :destroy
   has_many :fris, dependent: :destroy
 
+  validates :start_i, uniqueness: true
+  validates :finish_i, uniqueness: true
+
   def week_by?(n)
     weeks.exists?(book_id: n)
   end

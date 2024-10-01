@@ -3,6 +3,7 @@
 <h2>今日</h2>
 <%= @date %>
 <h2>新規</h2>
+<%= flash[:notice] %>
 <%= form_with model: Book.new, url:books_path, method: :post do |f| %>
   <%= f.date_field :start_i, value: @date1 %>～<%= f.date_field :finish_i, value: @date1+6 %>
   <%= f.submit "作成" %>

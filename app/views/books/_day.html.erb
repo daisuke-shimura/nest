@@ -7,9 +7,55 @@
     <%= book.start_i.month %>月<%= book.start_i.day %>日
   <% end %>
 </th>
-<th><%= (book.start_i+1).month %>月<%= (book.start_i+1).day %>日</th>
-<th><%= (book.start_i+2).month %>月<%= (book.start_i+2).day %>日</th>
-<th><%= (book.start_i+3).month %>月<%= (book.start_i+3).day %>日</th>
-<th><%= (book.start_i+4).month %>月<%= (book.start_i+4).day %>日</th>
-<th><%= (book.start_i+5).month %>月<%= (book.start_i+5).day %>日</th>
-<th><%= (book.start_i+6).month %>月<%= (book.start_i+6).day %>日</th>
+<th>
+  <% if book.tue_by?(book.id) %>
+    <div style="color: red">
+      <%= (book.start_i+1).month %>月<%= (book.start_i+1).day %>日
+    </div>
+  <% else %>
+    <%= (book.start_i+1).month %>月<%= (book.start_i+1).day %>日
+  <% end %>
+</th>
+<th>
+  <% if book.wed_by?(book.id) %>
+    <div style="color: red">
+      <%= (book.start_i+2).month %>月<%= (book.start_i+2).day %>日
+    </div>
+  <% else %>
+    <%= (book.start_i+2).month %>月<%= (book.start_i+2).day %>日
+  <% end %>
+</th>
+<th>
+  <% if book.thu_by?(book.id) %>
+    <div style="color: red">
+      <%= (book.start_i+3).month %>月<%= (book.start_i+3).day %>日
+    </div>
+  <% else %>
+    <%= (book.start_i+3).month %>月<%= (book.start_i+3).day %>日
+  <% end %>
+</th>
+<th>
+  <% if book.fri_by?(book.id) %>
+    <div style="color: red">
+      <%= (book.start_i+4).month %>月<%= (book.start_i+4).day %>日
+    </div>
+  <% else %>
+    <%= (book.start_i+4).month %>月<%= (book.start_i+4).day %>日
+  <% end %>
+</th>
+<th>
+  <% if book.sat_by?(book.id) %>
+    <div style="color: red">
+      <%= (book.start_i+5).month %>月<%= (book.start_i+5).day %>日
+    </div>
+  <% else %>
+    <div style="color: blue">
+      <%= (book.start_i+5).month %>月<%= (book.start_i+5).day %>日
+    </div>
+  <% end %>
+</th>
+<th>
+  <div style="color: red">
+    <%= (book.start_i+6).month %>月<%= (book.start_i+6).day %>日
+  </div>
+</th>
