@@ -1,0 +1,67 @@
+<td>
+  <% if book.mon_by?(book.id) %>
+    <%= link_to book_mons_path(book.id), data: { turbo_method: :delete } ,:style=>"color: red" do %>
+      月
+    <% end %>
+  <% else %>
+    <%= link_to book_mons_path(book.id), data: { turbo_method: :post } ,:style=>"color: black" do %>
+      月
+    <% end %>
+  <% end %>
+</td>
+<td>
+  <% if book.tue_by?(book.id) %>
+    <%= link_to book_tues_path(book.id), data: { turbo_method: :delete } ,:style=>"color: red" do %>
+      火
+    <% end %>
+  <% else %>
+    <%= link_to book_tues_path(book.id), data: { turbo_method: :post } ,:style=>"color: black" do %>
+      火
+    <% end %>
+  <% end %>
+</td>
+<td>
+  <% if book.wed_by?(book.id) %>
+    <%= link_to book_weds_path(book.id), data: { turbo_method: :delete } ,:style=>"color: red" do %>
+      水
+    <% end %>
+  <% else %>
+    <%= link_to book_weds_path(book.id), data: { turbo_method: :post } ,:style=>"color: black" do %>
+      水
+    <% end %>
+  <% end %>
+</td>
+<td>
+  <% if book.thu_by?(book.id) %>
+    <%= link_to book_thus_path(book.id), data: { turbo_method: :delete } ,:style=>"color: red" do %>
+      木
+    <% end %>
+  <% else %>
+    <%= link_to book_thus_path(book.id), data: { turbo_method: :post } ,:style=>"color: black" do %>
+      木
+    <% end %>
+  <% end %>
+</td>
+<td>
+  <% if book.fri_by?(book.id) %>
+    <%= link_to book_fris_path(book.id), data: { turbo_method: :delete } ,:style=>"color: red" do %>
+      金
+    <% end %>
+  <% else %>
+    <%= link_to book_fris_path(book.id), data: { turbo_method: :post } ,:style=>"color: black" do %>
+      金
+    <% end %>
+  <% end %>
+</td>
+<td>
+  <% if book.sat_by?(book.id) %>
+    <%= link_to book_sats_path(book.id), data: { turbo_method: :delete } ,:style=>"color: red" do %>
+      土
+    <% end %>
+  <% else %>
+    <%= link_to book_sats_path(book.id), data: { turbo_method: :post } ,:style=>"color: blue" do %>
+      土
+    <% end %>
+  <% end %>
+</td>
+<td style="color: red">日</td>
