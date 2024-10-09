@@ -44,7 +44,7 @@ b
   <%= user.name %>
   <% if user.comment_by?(@book.id,user.id) %>
     〇
-    <% Comment.all.each do |comment| %>
+    <%= user.comments.each do |comment| %>
       <% if @book.id == comment.book_id && user.id == comment.user_id %>
         <%= comment.comment %>
         <%= link_to "削除", book_comment_path(comment.id), data: { turbo_method: :delete } %>  
