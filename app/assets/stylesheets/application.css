@@ -13,3 +13,57 @@
  *= require_tree .
  *= require_self
  */
+
+.scroll{
+  overflow-x: scroll;
+}
+
+table{
+  /*width: 100%;*/
+  /*white-space: pre;*/
+  /*table-layout: fixed;*/
+  min-width: 400px;
+  
+}
+
+.sel{
+  /*width: 100px;*/
+  background-color: #d6d8db;
+  white-space: nowrap;
+}
+.one{
+  /*width: 250px;*/
+  background-color: #d6d8db;
+  white-space: pre;
+}
+.moku{
+  /*width: 500px;*/
+  background-color: #87ceeb;
+  white-space: nowrap;
+}
+
+.waku{
+  display: block;
+  width: 1000px;
+  height: 500px;
+  border: solid 3px;
+
+  
+}
+.box{
+  display: block;
+  margin: 50px auto;
+  width: 800px;
+  height: 400px;
+  background-color: #66cdaa;
+
+}
+
+ @media screen and (max-width:960px){
+  .sel{
+    
+    background-color: #ff00ff;
+    white-space: nowrap;
+  }
+  
+ }
