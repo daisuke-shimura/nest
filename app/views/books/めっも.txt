@@ -1,0 +1,62 @@
+<%= link_to "戻る", books_path %>
+<h2>ログインユーザー</h2>
+<%= render "login" %>
+<hr>
+<%= @book.id %>
+<%= @book.start_i %>～<%= @book.finish_i %>
+<%= link_to "削除", book_path(@book.id), data: { turbo_method: :delete } %>
+<hr>
+<% if @book.week_by?(@book.id) %>
+a
+<%= link_to "削除", book_weeks_path(@book.id), data: { turbo_method: :delete } %>
+<% else %>
+b
+<%= link_to "投稿", book_weeks_path(@book.id), data: { turbo_method: :post } %>
+<% end %>
+
+<table>
+  <tr>
+    <%= render "day", book:@book %>
+    
+  </tr>
+  <tr>
+    <%= render "week", book:@book %>
+  </tr>
+</table>
+<hr>
+<h3>コメント一覧</h3>
+<%= Book.find(params[:id]).id %>
+<br>
+
+<hr>
+<h3>ユーザー一覧からコメント</h3>
+<% User.all.each do |user| %>
+  <%= user.id %>
+  <%= user.name %>
+  <% if user.comment_by?(@book.id,user.id) %>
+    〇
+    <%= user.comments.each do |comment| %>
+      <% if @book.id == comment.book_id && user.id == comment.user_id %>
+        <%= comment.comment %>
+        <%= link_to "削除", book_comment_path(comment.id), data: { turbo_method: :delete } %>  
+      <% end %>
+    <% end %>
+  <% else %>
+    ×
+    <%= render "form", book:@book %>
+  <% end %>
+  <br>
+<% end %>
+
+
+<% Comment.all.each do |comment| %>
+  <%= comment.id %>
+  <%= comment.book_id %>
+  <%= comment.comment %>
+  <%= link_to "削除", book_comment_path(comment.id), data: { turbo_method: :delete } %>
+  <%= comment.user_id %>
+  <%= comment.user.name %>
+  <br>
+<% end %>
+<hr>
+<%= render "form", book:@book %>

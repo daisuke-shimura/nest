@@ -13,6 +13,8 @@ class BooksController < ApplicationController
   def show
     @book = Book.find(params[:id])
     @date = Date.today
+    @user = User.pluck(:id, :name)
+    #@user = User.all
   end
 
   def create
