@@ -1,4 +1,7 @@
 class BooksController < ApplicationController
+  
+  before_action :create_file, only: :show
+  
   def index
     date1 = Date.today
     @date1 = (date1 + (8-date1.wday))+14
@@ -39,4 +42,11 @@ class BooksController < ApplicationController
   def book_params
     params.require(:book).permit(:start_i, :finish_i)
   end
+
+  def create_file
+    file = File.open("format_output.txt", "w")
+    file.puts("Hello, Ruby!")
+    file.close
+  end
+
 end
